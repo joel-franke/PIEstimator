@@ -28,14 +28,13 @@ int main()
 
 	//main loop
 	for (idx = 0; idx < numOfRuns; ++idx) {
-		 
 		//get new random coordinate
-		xcoord = rand() % 100;
-		ycoord = rand() % 100;
+		xcoord = ((double)rand() / RAND_MAX) * (1 - 0);
+		ycoord = ((double)rand() / RAND_MAX) * (1 - 0);
 		//cout << "XCORD: " << xcoord << "\n";
 		//cout << "YCORD: " << ycoord << "\n";
 
-		if (sqrt(pow(xcoord, 2.0) + pow(ycoord, 2.0)) <= 100) {
+		if (sqrt(pow(xcoord, 2.0) + pow(ycoord, 2.0)) <= 1) {
 			//increase number of counts for circle
 			count++;
 		}

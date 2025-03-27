@@ -4,14 +4,22 @@
 #include <iostream>
 #include <cstdlib> // Needed for rand() and srand()
 #include <ctime>   // Needed for time()
+#include <limits>
+#include <iomanip>
 using namespace std;
 
+
+int compareToPI(double calculatedPI) {
+	const long double real_pi = 3.141592653589793238;
+	cout << "Ausgabe echtes pi: " << setprecision(18) << real_pi << endl;
+	return 0;
+}
 
 int main()
 {
 	double xcoord; //x component of coordinate
 	double ycoord; //y component of coordinate
-	double pi; //to store result
+	long double pi; //to store result
 	int idx; //index counter for main loop
 	int numOfRuns; //holds number of trials
 	int count; //counter for number of circle hits
@@ -21,7 +29,7 @@ int main()
 	//reset counter
 	count = 0;
 	//ask the user for the number of trials
-	cout << "Please enter the number of trials: ";
+	cout << "Please enter the number of trials: "; 
 	cin >> numOfRuns;
 	//tell user you are busy
 	cout << "\nRunning ..." << endl;
@@ -31,8 +39,6 @@ int main()
 		//get new random coordinate
 		xcoord = ((double)rand() / RAND_MAX) * (1 - 0);
 		ycoord = ((double)rand() / RAND_MAX) * (1 - 0);
-		//cout << "XCORD: " << xcoord << "\n";
-		//cout << "YCORD: " << ycoord << "\n";
 
 		if (sqrt(pow(xcoord, 2.0) + pow(ycoord, 2.0)) <= 1) {
 			//increase number of counts for circle
@@ -41,10 +47,14 @@ int main()
 		//cout << count << "\n";
 	}
 	//estimate pi
-	pi = 4.0 * ((double)count / (double)idx);
+	pi = 4.0 * ((long double)count / (long double)idx);
 
 	//print results
-	cout << "\nResult: pi=\t"  << pi  << endl;
+	cout << "\nResult: pi=\t"  << setprecision(18) << pi  << endl;
+
+	//compare the calculated pi to the scientific pi 
+	compareToPI(3);
+
 	//good bye ...	
 	return 0;
 }

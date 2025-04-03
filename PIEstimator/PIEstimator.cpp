@@ -6,12 +6,35 @@
 #include <ctime>   // Needed for time()
 #include <limits>
 #include <iomanip>
+#include <string> // Used to compare the digits of pi
+
 using namespace std;
 
 
 int compareToPI(double calculatedPI) {
 	const long double real_pi = 3.141592653589793238;
+	string ComparePI = to_string(calculatedPI);
+	string CompareReal_PI = to_string(real_pi);
+	//char ComparePIDigits = ComparePI[j];
+	//char CompareReal_PI_digits = CompareReal_PI[j];
+
+
 	cout << "Ausgabe echtes pi: " << setprecision(18) << real_pi << endl;
+	
+	for (int j = 0; j < ComparePI.size(); j++) {
+		
+		if (ComparePI[j] != CompareReal_PI[j]) {
+			
+			cout << ComparePI[j];
+			
+		} else {
+			cout << ComparePI[j];
+		}
+	}
+		
+
+	
+	
 	return 0;
 }
 
@@ -53,7 +76,7 @@ int main()
 	cout << "\nResult: pi=\t"  << setprecision(18) << pi  << endl;
 
 	//compare the calculated pi to the scientific pi 
-	compareToPI(3);
+	compareToPI(pi);
 
 	//good bye ...	
 	return 0;
